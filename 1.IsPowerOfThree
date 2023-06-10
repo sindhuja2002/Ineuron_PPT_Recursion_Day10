@@ -1,0 +1,22 @@
+#question1
+def isPowerOfThree(n):
+    if n <= 0:
+        return False
+    while n % 3 == 0:
+        n //= 3
+    return n == 1
+
+# Example 1
+n1 = 27
+print(isPowerOfThree(n1))  # Output: True
+
+# Example 2
+n2 = 0
+print(isPowerOfThree(n2))  # Output: False
+
+# Example 3
+n3 = -1
+print(isPowerOfThree(n3))  # Output: False
+
+#TC - O(log3n)----n%3
+#SC - O(1)
