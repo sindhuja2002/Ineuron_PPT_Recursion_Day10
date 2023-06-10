@@ -1,0 +1,23 @@
+#question 2
+def lastRemaining(n):
+    def eliminate(arr, left_to_right):
+        if len(arr) == 1:
+            return arr[0]
+        if left_to_right:
+            return eliminate(arr[1::2], not left_to_right)
+        else:
+            return eliminate(arr[-2::-2][::-1], not left_to_right)
+
+    arr = list(range(1, n + 1))
+    return eliminate(arr, True)
+
+# Example 1
+n1 = 9
+print(lastRemaining(n1))  # Output: 6
+
+# Example 2
+n2 = 1
+print(lastRemaining(n2))  # Output: 1
+
+#TC - O(log2n)----size of list is halved
+#SC - O(log2n)----the space required for the stack for eliminate() and (arr) is halved
