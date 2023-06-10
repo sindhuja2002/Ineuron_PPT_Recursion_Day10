@@ -1,0 +1,23 @@
+#question 3
+def printSubsets(s, current_subset=""):
+    if len(s) == 0:
+        print(current_subset)
+        return
+
+    # Exclude the first character of the set and recursively generate subsets
+    printSubsets(s[1:], current_subset)
+
+    # Include the first character of the set and recursively generate subsets
+    printSubsets(s[1:], current_subset + s[0])
+
+
+# Example usage
+s = "abc"
+printSubsets(s)
+
+#example 2
+s = "abcd"
+printSubsets(s)
+
+#TC - O(2^N)----2 choices,include current subset or exclude
+#SC - O(N)---N - depth of recursion where ,at given pt maximum depth of the recursion = length of the input string s
