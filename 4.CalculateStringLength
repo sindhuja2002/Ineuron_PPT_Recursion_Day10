@@ -1,0 +1,17 @@
+#question 4
+def calculateStringLength(string):
+    if string == "":
+        return 0
+    else:
+        return 1 + calculateStringLength(string[1:])
+
+
+# Example usage
+str1 = "abcd"
+print(calculateStringLength(str1))  # Output: 4
+
+str2 = "GEEKSFORGEEKS"
+print(calculateStringLength(str2))  # Output: 13
+
+#TC - O(n)
+#SC - O(n)
