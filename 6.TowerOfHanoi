@@ -1,0 +1,25 @@
+#question 6
+def towerOfHanoi(n, source, destination, auxiliary):
+    if n == 1:
+        print("move disk 1 from rod", source, "to rod", destination)
+        return 1
+
+    moves = (
+        towerOfHanoi(n - 1, source, auxiliary, destination)
+        + 1
+        + towerOfHanoi(n - 1, auxiliary, destination, source)
+    )
+    print("move disk", n, "from rod", source, "to rod", destination)
+    return moves
+
+
+# Example usage
+N1 = 2
+print("Total moves:", towerOfHanoi(N1, 1, 3, 2))
+print()
+
+N2 = 3
+print("Total moves:", towerOfHanoi(N2, 1, 3, 2))
+
+#TC - O(2^N)----N is no. of disks,prbl is div into 2 subprblms with N-1 disks
+#SC - O(N)---N ---max depth of recursion = no. of disks
