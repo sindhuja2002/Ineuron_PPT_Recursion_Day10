@@ -1,0 +1,23 @@
+#question 7
+def permutations(string, current_permutation=""):
+    if len(string) == 0:
+        print(current_permutation)
+        return
+
+    for i in range(len(string)):
+        permutations(
+            string[:i] + string[i + 1 :],
+            current_permutation + string[i]
+        )
+
+
+# Example usage
+str1 = "cd"
+permutations(str1)  # Output: cd dc
+print()
+
+str2 = "abb"
+permutations(str2)  # Output: abb abb bab bba bab bba
+
+#TC - O(N!)---N -length of input string
+#SC - O(N)
